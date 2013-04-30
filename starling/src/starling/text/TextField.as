@@ -305,7 +305,7 @@ package starling.text
             
             if (drawWithQualityFunc is Function)
                 drawWithQualityFunc.call(bitmapData, sNativeTextField, drawMatrix, 
-                                         null, null, null, false, StageQuality.MEDIUM);
+                                         null, null, null, false, StageQuality.BEST);
             else
                 bitmapData.draw(sNativeTextField, drawMatrix);
             
@@ -316,7 +316,21 @@ package starling.text
                                    (textOffsetY + filterOffset.y) / scale,
                                    textWidth / scale, textHeight / scale);
             
-            return bitmapData;
+            var texture:Texture = Texture.fromBitmapData(bitmapData, true, false, scale);
+            
+            if (mImage == null) 
+            {
+                mImage = new Image(texture);
+                mImage.touchable = false;
+                addChild(mImage);
+            }
+            else 
+            { 
+                mImage.texture.dispose();
+                mImage.texture = texture; 
+                mImage.readjustSize(); 
+            }
+			return bitmapData;
         }
         
         private function autoScaleNativeTextField(textField:flash.text.TextField):void
