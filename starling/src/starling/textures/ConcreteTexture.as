@@ -14,6 +14,7 @@ package starling.textures
     import flash.display3D.Context3D;
     import flash.display3D.Context3DTextureFormat;
     import flash.display3D.textures.TextureBase;
+	import flash.utils.Dictionary;
     
     import starling.core.Starling;
     import starling.events.Event;
@@ -21,6 +22,7 @@ package starling.textures
     /** A ConcreteTexture wraps a Stage3D texture object, storing the properties of the texture. */
     public class ConcreteTexture extends Texture
     {
+		
         private var mBase:TextureBase;
         private var mFormat:String;
         private var mWidth:int;

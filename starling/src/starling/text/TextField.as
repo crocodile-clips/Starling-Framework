@@ -227,7 +227,7 @@ package starling.text
             
             if (drawWithQualityFunc is Function)
                 drawWithQualityFunc.call(bitmapData, sNativeTextField, drawMatrix, 
-                                         null, null, null, false, StageQuality.MEDIUM);
+                                         null, null, null, false, StageQuality.BEST);
             else
                 bitmapData.draw(sNativeTextField, drawMatrix);
             
@@ -242,7 +242,7 @@ package starling.text
             mHitArea.width  = width  / scale;
             mHitArea.height = height / scale;
             
-            var texture:Texture = Texture.fromBitmapData(bitmapData, false, false, scale);
+            var texture:Texture = Texture.fromBitmapData(bitmapData, true, false, scale);
             
             if (mImage == null) 
             {

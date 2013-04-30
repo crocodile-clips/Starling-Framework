@@ -287,7 +287,7 @@ package starling.display
          *  creating a new object. */
         public function localToGlobal(localPoint:Point, resultPoint:Point=null):Point
         {
-            getTransformationMatrix(base, sHelperMatrix);
+            sHelperMatrix = getTransformationMatrix(base, sHelperMatrix);
             return MatrixUtil.transformCoords(sHelperMatrix, localPoint.x, localPoint.y, resultPoint);
         }
         
@@ -296,7 +296,7 @@ package starling.display
          *  creating a new object. */
         public function globalToLocal(globalPoint:Point, resultPoint:Point=null):Point
         {
-            getTransformationMatrix(base, sHelperMatrix);
+            sHelperMatrix = getTransformationMatrix(base, sHelperMatrix);
             sHelperMatrix.invert();
             return MatrixUtil.transformCoords(sHelperMatrix, globalPoint.x, globalPoint.y, resultPoint);
         }
