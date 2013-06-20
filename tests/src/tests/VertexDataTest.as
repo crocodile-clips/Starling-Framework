@@ -200,16 +200,19 @@ package tests
             
             Helpers.compareVectors(vd1.rawData, vd2.rawData);
             assertEquals(vd1.numVertices, vd2.numVertices);
-            
             vd2.numVertices = 4;
             vd1.copyTo(vd2, 2);
             assertEquals(4, vd2.numVertices);
             
             for (var i:int=0; i<2; ++i)
+            {
                 for (var j:int=0; j<VertexData.ELEMENTS_PER_VERTEX; ++j)
-                    assertEquals(
-                        vd1.rawData[   i  * VertexData.ELEMENTS_PER_VERTEX + j], 
-                        vd2.rawData[(2+i) * VertexData.ELEMENTS_PER_VERTEX + j]);
+                {
+                    var vd1Value:Number = vd1.rawData[VertexData.ELEMENTS_PER_VERTEX * i + j];
+                    var vd2Value:Number = vd2.rawData[VertexData.ELEMENTS_PER_VERTEX * (2+i) + j];
+                    assertThat(vd1Value, closeTo(vd2Value, E));
+                }
+            }
         }
         
         [Test]
@@ -221,7 +224,7 @@ package tests
             
             var matrix:Matrix = new Matrix();
             matrix.translate(5, 6);
-
+            
             var position:Point = new Point();
             vd.transformVertex(0, matrix, 1);
             vd.getPosition(0, position);
