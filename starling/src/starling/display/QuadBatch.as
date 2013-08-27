@@ -200,8 +200,8 @@ package starling.display
             }
             else
             {
-                // as last parameter, we could also use 'mNumQuads * 4', but on some
-                // GPU hardware (iOS!), this is slower than updating the complete buffer.
+                // as last parameter, we could also use 'mNumQuads * 4', but on some GPU hardware (iOS!),
+                // this is slower than updating the complete buffer.
                 mVertexBuffer.uploadFromVector(mVertexData.rawData, 0, mVertexData.numVertices);
                 mSyncRequired = false;
             }
