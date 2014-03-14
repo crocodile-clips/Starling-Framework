@@ -14,14 +14,11 @@ package starling.textures
     import flash.display.BitmapData;
     import flash.display3D.Context3D;
     import flash.display3D.textures.TextureBase;
-<<<<<<< HEAD
     import flash.geom.Matrix;
     import flash.geom.Point;
     import flash.geom.Rectangle;
     import flash.utils.ByteArray;
-=======
 	import flash.utils.Dictionary;
->>>>>>> 32848fa... Update to display object to fix weird bug where matrix appear to be being pased by value and updates to textfield to improve crispness.
     
     import starling.core.RenderSupport;
     import starling.core.Starling;

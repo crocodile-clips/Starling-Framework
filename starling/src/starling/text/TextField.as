@@ -295,8 +295,12 @@ package starling.text
             
             // finally: draw text field to bitmap data
             var bitmapData:BitmapData = new BitmapData(width, height, true, 0x0);
+//<<<<<<< HEAD
             var drawMatrix:Matrix = new Matrix(1, 0, 0, 1,
                 filterOffset.x, filterOffset.y + int(textOffsetY)-2);
+//=======
+//           var drawMatrix:Matrix = new Matrix(1, 0, 0, 1, -2, int(yOffset)-4); 
+//>>>>>>> Altered textfield to stop text being clipped
             var drawWithQualityFunc:Function = 
                 "drawWithQuality" in bitmapData ? bitmapData["drawWithQuality"] : null;
             
