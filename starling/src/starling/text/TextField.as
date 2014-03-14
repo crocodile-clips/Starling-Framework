@@ -279,7 +279,7 @@ package starling.text
             else if (vAlign == VAlign.BOTTOM) yOffset =  height - textHeight - 2;
             
             var bitmapData:BitmapData = new BitmapData(width, height, true, 0x0);
-            var drawMatrix:Matrix = new Matrix(1, 0, 0, 1, 0, int(yOffset)-2); 
+            var drawMatrix:Matrix = new Matrix(1, 0, 0, 1, -2, int(yOffset)-4); 
             var drawWithQualityFunc:Function = 
                 "drawWithQuality" in bitmapData ? bitmapData["drawWithQuality"] : null;
             
