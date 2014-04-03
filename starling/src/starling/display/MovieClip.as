@@ -254,7 +254,7 @@ package starling.display
                     }
                     else
                     {
-                        mCurrentFrame++;
+						incrementCurrentFrame()
                     }
                     
                     var sound:Sound = mSounds[mCurrentFrame];
@@ -276,6 +276,11 @@ package starling.display
             if (mLoop && restTime > 0.0)
                 advanceTime(restTime);
         }
+		
+		protected function incrementCurrentFrame():void
+        {
+			mCurrentFrame++;
+		}
         
         /** Indicates if a (non-looping) movie has come to its end. */
         public function get isComplete():Boolean 
