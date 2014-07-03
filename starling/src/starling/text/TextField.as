@@ -297,7 +297,7 @@ package starling.text
             var bitmapData:BitmapData = new BitmapData(width, height, true, 0x0);
 //<<<<<<< HEAD
             var drawMatrix:Matrix = new Matrix(1, 0, 0, 1,
-                filterOffset.x, filterOffset.y + int(textOffsetY)-2);
+                filterOffset.x - 2, filterOffset.y + int(textOffsetY) - 4);
 //=======
 //           var drawMatrix:Matrix = new Matrix(1, 0, 0, 1, -2, int(yOffset)-4); 
 //>>>>>>> Altered textfield to stop text being clipped
