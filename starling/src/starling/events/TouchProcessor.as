@@ -10,6 +10,8 @@
 
 package starling.events
 {
+	import com.sumdog.utils.BroadcastEvent;
+	import com.sumdog.utils.listen;
     import flash.geom.Point;
     import flash.utils.getDefinitionByName;
     
@@ -84,6 +86,8 @@ package starling.events
             mStage.addEventListener(KeyboardEvent.KEY_DOWN, onKey);
             mStage.addEventListener(KeyboardEvent.KEY_UP,   onKey);
             monitorInterruptions(true);
+			
+			listen(BroadcastEvent.EXIT_GAME, clearArrays)
         }
 
         /** Removes all event handlers on the stage and releases any acquired resources. */
@@ -92,6 +96,8 @@ package starling.events
             monitorInterruptions(false);
             mStage.removeEventListener(KeyboardEvent.KEY_DOWN, onKey);
             mStage.removeEventListener(KeyboardEvent.KEY_UP,   onKey);
+			clearArrays()
+			
             if (mTouchMarker) mTouchMarker.dispose();
         }
         
@@ -442,5 +448,13 @@ package starling.events
             mCurrentTouches.length = 0;
             mQueue.length = 0;
         }
+		
+		private function clearArrays(e:BroadcastEvent = null):void
+		{
+			mLastTaps = new <Touch>[]
+			this.mCurrentTouches = new <Touch>[];
+			sUpdatedTouches = new <Touch>[];
+			sHoveringTouchData = new <Object>[];
+		}
     }
 }
